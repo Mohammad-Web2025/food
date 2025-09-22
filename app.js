@@ -4,19 +4,23 @@ const price = document.querySelectorAll(".price");
 const imageshopp = document.querySelector("#icon-shopp");
 const listsfood = document.querySelector(".list-food");
 const infofoodright = document.querySelector("#info-food-right");
-const payment = document.querySelector('#payment');
+const payment = document.querySelector("#payment");
 const totalPriceEl = document.querySelector("#total-price");
 const cartCountSpan = document.querySelector("#title-food-right span");
 
 // تابع بروزرسانی جمع کل و وضعیت سبد
 function updateCart() {
   const items = listsfood.querySelectorAll(".total-price");
-  const total = Array.from(items)
-    .reduce((sum, el) => sum + parseFloat(el.textContent), 0);
+  const total = Array.from(items).reduce(
+    (sum, el) => sum + parseFloat(el.textContent),
+    0
+  );
   totalPriceEl.textContent = `Total: ${total}`;
 
-  const totalItems = Array.from(listsfood.querySelectorAll(".count"))
-    .reduce((sum, el) => sum + parseInt(el.textContent), 0);
+  const totalItems = Array.from(listsfood.querySelectorAll(".count")).reduce(
+    (sum, el) => sum + parseInt(el.textContent),
+    0
+  );
   cartCountSpan.textContent = `(${totalItems})`;
 
   // اگر سبد خالی شد
@@ -35,14 +39,16 @@ addtocart.forEach((btn, index) => {
   btn.addEventListener("click", () => {
     imageshopp.style.display = "none";
     infofoodright.style.display = "none";
-    payment.style.display = 'block';
+    payment.style.display = "block";
 
     const name = foodname[index].textContent;
-    const priceValue = parseFloat(price[index].textContent.replace(/[^\d.]/g,""));
+    const priceValue = parseFloat(
+      price[index].textContent.replace(/[^\d.]/g, "")
+    );
 
     // بررسی وجود قبلی آیتم
-    let existingItem = Array.from(listsfood.children).find(item => 
-      item.querySelector(".title-list").textContent === name
+    let existingItem = Array.from(listsfood.children).find(
+      (item) => item.querySelector(".title-list").textContent === name
     );
 
     if (existingItem) {

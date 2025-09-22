@@ -168,6 +168,7 @@ img{
     color: white;
     display: none;
     margin-top: 20px;
+    margin-bottom: 25px;
 }
 .number{
     display: flex;
@@ -195,7 +196,7 @@ img{
     font-size: clamp(14px,4vw,20px);
     font-weight: bold;
     display: none;
-    margin-bottom: -10px;
+    margin-bottom: -5px;
 }
 @media (min-width:820px) and (max-width:1180px) {
     .food-right{
